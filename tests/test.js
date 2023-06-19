@@ -1,5 +1,6 @@
 require("dotenv").config();
 const loginPage = require("../pages/loginPage");
+const homepage = require("../pages/homePage");
 let assert = require("assert");
 
 describe("Hudl Login Tests", function () {
@@ -13,7 +14,7 @@ describe("Hudl Login Tests", function () {
 
     await loginPage.enter_url();
     await loginPage.login(email, password);
-    assert.equal(await loginPage.driver.getTitle(), "Log In");
+    assert.equal(await loginPage.driver.getTitle(), homepage.pageTitle);
   });
 
   it("Incorrect email and password", async function () {

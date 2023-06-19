@@ -1,7 +1,7 @@
 const { Key, By, until } = require("selenium-webdriver");
-let BasePage = require("../pages/basepage");
+let BasePage = require("./basePage");
 
-class HomePage extends BasePage {
+class LoginPage extends BasePage {
   async enter_url(
     theURL = "https://www.hudl.com/login?utm_content=hudl_primary&utm_source=www.hudl.com&utm_medium=login_dropdown&utm_campaign=platform_logins"
   ) {
@@ -16,6 +16,7 @@ class HomePage extends BasePage {
     await this.driver.findElement(By.id(emailId)).sendKeys(email);
     await this.driver.findElement(By.id(passwordId)).sendKeys(password);
     await this.driver.findElement(By.id(submitButtonId)).click();
+    await this.driver.sleep(500);
   }
 
   async errorMessageVisible() {
@@ -26,4 +27,4 @@ class HomePage extends BasePage {
     return await error.isDisplayed();
   }
 }
-module.exports = new HomePage();
+module.exports = new LoginPage();
