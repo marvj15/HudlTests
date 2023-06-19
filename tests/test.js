@@ -6,8 +6,6 @@ let assert = require("assert");
 describe("Hudl Login Tests", function () {
   this.timeout(50000);
 
-  this.beforeEach(function () {});
-
   it("Correct email and password", async function () {
     let email = process.env.TEST_EMAIL;
     let password = process.env.TEST_PASSWORD;
